@@ -2,6 +2,8 @@ import {HomeTitle} from "@/app/nav";
 import InfoPanel from "@/app/infoPanel"
 import React from "react";
 
+const CRS = "COV"
+
 const username = "rttapi_ae_jae";
 const password = "6093bb063b6182aeafb406be78fee0bc34f01dfc";
 const headers = new Headers();
@@ -18,8 +20,10 @@ export async function getServiceInfo(serviceUid: string, runDate: string) {
     return await response.json();
 }
 
+const isThisStation = (station: any) => station.crs === CRS;
+
 export default async function Home() {
-    const data = await getData("EUS");
+    const data = await getData(CRS);
     const stationName = data.location.name;
     let items: React.JSX.Element[] = [];
 
@@ -29,9 +33,18 @@ export default async function Home() {
         const info = await getServiceInfo(id, runDate);
 
         if (info.isPassenger) {
-            const dest = info.destination[0].description
-            const plat = info.locations[0].platform
-            items.push(<InfoPanel key={id} num={id} dest={dest} plat={plat}/>)
+            const thisLocation = info.locations[info.locations.findIndex(isThisStation)];
+            const eDep = thisLocation.realtimeDeparture;
+            const sDep = thisLocation.gbttBookedDeparture
+            const late = +eDep - +sDep;
+            const dest = info.destination[0].description;
+            const plat = thisLocation.platform;
+
+
+            // console.log(id)
+            // console.log(thisLocation)
+
+            items.push(<InfoPanel key={id} num={id} eDep={eDep} late={late} dest={dest} plat={plat}/>);
         }
     }
 
