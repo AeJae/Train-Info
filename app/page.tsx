@@ -24,7 +24,7 @@ export default async function Home() {
 
     return (
         <main>
-            <HomeTitle name={`Live Departures from ${stationName}`}/>
+            <HomeTitle name={stationName}/>
             <div id="services">
                 {items}
             </div>
