@@ -2,7 +2,7 @@ import {HomeTitle} from "@/app/nav";
 import InfoPanel from "@/app/infoPanel"
 import React from "react";
 
-const CRS = "COV"
+const CRS = "COV";
 
 const username = "rttapi_ae_jae";
 const password = "6093bb063b6182aeafb406be78fee0bc34f01dfc";
@@ -35,16 +35,14 @@ export default async function Home() {
         if (info.isPassenger) {
             const thisLocation = info.locations[info.locations.findIndex(isThisStation)];
             const eDep = thisLocation.realtimeDeparture;
-            const sDep = thisLocation.gbttBookedDeparture
+            const sDep = thisLocation.gbttBookedDeparture;
             const late = +eDep - +sDep;
             const dest = info.destination[0].description;
             const plat = thisLocation.platform;
+            const pCnf = thisLocation.platformConfirmed;
+            const canc = thisLocation.cancelReasonShortText;
 
-
-            // console.log(id)
-            // console.log(thisLocation)
-
-            items.push(<InfoPanel key={id} num={id} eDep={eDep} late={late} dest={dest} plat={plat}/>);
+            items.push(<InfoPanel key={id} num={id} eDep={eDep} late={late} canc={canc} dest={dest} plat={plat} pCnf={pCnf}/>);
         }
     }
 
