@@ -42,11 +42,11 @@ export default function infoPanel({ num, eDep, sDep, late, canc, dest, plat, pCn
         <div className={"info flex items-center justify-between w-full text-xl cursor-pointer mt-0.5 mb-0.5"}>
             <div className={"flex"}>
                 <p className={"sDep w-16 text-center" + cancelStyling}>{sDep.substring(0, 2)}:{sDep.substring(2, 4)}</p>
-                <p className={"eDep w-24 ml-2" + latenessStyling}>{eDepString}</p>
+                <p className={"eDep w-28 ml-2" + latenessStyling}>{eDepString}</p>
             </div>
             <p className={"dest text-center" + cancelStyling}>{dest}</p>
             <div className={"flex"}>
-                <p className={"placeholder w-24 mr-2"}></p>
+                <p className={"placeholder w-28 mr-2"}></p>
                 <p className={"plat w-16 text-center" + platformStyling + cancelStyling}>{plat}</p>
             </div>
 
