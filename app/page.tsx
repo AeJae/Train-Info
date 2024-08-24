@@ -34,15 +34,18 @@ export default async function Home() {
 
         if (info.isPassenger) {
             const thisLocation = info.locations[info.locations.findIndex(isThisStation)];
+            // Departure timings
             const eDep = thisLocation.realtimeDeparture;
             const sDep = thisLocation.gbttBookedDeparture;
             const late = +eDep - +sDep;
+            const canc = thisLocation.cancelReasonShortText;
+            // Destination
             const dest = info.destination[0].description;
+            // Platform number
             const plat = thisLocation.platform;
             const pCnf = thisLocation.platformConfirmed;
-            const canc = thisLocation.cancelReasonShortText;
 
-            items.push(<InfoPanel key={id} num={id} eDep={eDep} late={late} canc={canc} dest={dest} plat={plat} pCnf={pCnf}/>);
+            items.push(<InfoPanel key={id} num={id} eDep={eDep} sDep={sDep} late={late} canc={canc} dest={dest} plat={plat} pCnf={pCnf}/>);
         }
     }
 
