@@ -4,7 +4,8 @@ import ErrorInfo from "@/app/errorInfo";
 import NoServices from "@/app/noServices";
 import React from "react";
 
-const CRS = "EUS";
+// EUS COV TWY RDG KGX STP
+const CRS = "STP";
 
 const username = "rttapi_ae_jae";
 const password = "6093bb063b6182aeafb406be78fee0bc34f01dfc";
