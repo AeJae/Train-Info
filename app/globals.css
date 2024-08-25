@@ -14,17 +14,9 @@ body {
 }
 
 .tile-top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 0.5rem/* 8px */;
-  padding-bottom: 0.5rem/* 8px */;
+  @apply flex justify-center items-center pt-2 pb-2;
 }
 
 .tile-row {
-  display: flex;
-  align-items: center;
-  grid-column: span 3 / span 3;
-  border-top-width: 1px;
-  padding: 0 0.5rem;
+  @apply flex items-center col-span-3 border-t px-2;
 }
