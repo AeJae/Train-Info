@@ -8,14 +8,14 @@ export default async function Page() {
     const CRS: string = "RDG";
 
     const stationInfo: stnDataInt = await getStnData({crs: CRS});
-    const services: any[] = stationInfo.services;
+    const services: any = stationInfo.services;
     let serviceCount = 0;
     let tiles = [];
 
-    // Show an error splashscreen if services is null.
-    if (!services) {
-        return <ErrorInfo e={stationInfo.name} source={"dataFetcher.tsx -> 'services' is null."} />
-    }
+    // Show a splashscreen if there are any errors...
+    if (!services) return <ErrorInfo e={stationInfo.name} source={"dataFetcher.tsx -> Unknown Error"} />;
+    if (services === "NOT_FOUND") return <ErrorInfo e={stationInfo.name} source={"dataFetcher.tsx -> NOT_FOUND"} />;
+    if (services === "BAD_CRS") return <ErrorInfo e={stationInfo.name} source={"dataFetcher.tsx -> BAD_CRS"} />;
 
     // Check that there are services...
     if (services.length > 0) {

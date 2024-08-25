@@ -5,7 +5,7 @@ headers.append('Authorization', 'Basic ' + btoa(`${username}:${password}`));
 
 export interface stnDataInt {
     name: string,
-    services: any[]
+    services: any
 }
 
 export async function getStnData({crs} : {crs: string}) {
@@ -22,7 +22,9 @@ export async function getStnData({crs} : {crs: string}) {
         return {name, services};
     } catch (e: any) {
         const name = e.toString();
-        const services = null;
+        let services = null;
+        if (e.name === "SyntaxError") services = "NOT_FOUND";
+        if (e.name === "TypeError") services = "BAD_CRS";
         return {name, services}
     }
 }
