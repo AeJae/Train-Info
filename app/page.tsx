@@ -4,7 +4,7 @@ import ErrorInfo from "@/app/errorInfo";
 import NoServices from "@/app/noServices";
 import React from "react";
 
-// EUS COV TWY RDG KGX STP
+// EUS COV TWY RDG KGX STP PAD SWI BRI
 const CRS = "STP";
 
 const username = "rttapi_ae_jae";
@@ -44,7 +44,6 @@ export default async function Home() {
                     // Departure timings
                     const eDep = thisLocation.realtimeDeparture;
                     const sDep = thisLocation.gbttBookedDeparture;
-                    const late = +eDep - +sDep;
                     const canc = thisLocation.cancelReasonShortText;
                     // Destination
                     const dest = info.destination[0].description;
@@ -52,8 +51,7 @@ export default async function Home() {
                     const plat = thisLocation.platform;
                     const pCnf = thisLocation.platformConfirmed;
 
-                    items.push(<InfoPanel key={id} num={id} eDep={eDep} sDep={sDep} late={late} canc={canc} dest={dest}
-                                          plat={plat} pCnf={pCnf}/>);
+                    items.push(<InfoPanel key={id} eDep={eDep} sDep={sDep} canc={canc} dest={dest} plat={plat} pCnf={pCnf}/>);
                 }
                 if (serviceCount === 0) {
                     return <NoServices station={stationName} />
