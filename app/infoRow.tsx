@@ -29,7 +29,7 @@ function createDepString(canc: string | null, late: boolean, eDep: string) {
     return "";
 }
 
-export default function infoPanel({ eDep, sDep, canc, dest, plat, pCnf }: params) {
+export default function infoRow({ eDep, sDep, canc, dest, plat, pCnf }: params) {
     const late = +eDep - +sDep !== 0; // This is true for both early and late.
     const eDepString = createDepString(canc, late, eDep);
     const latenessStyling = createLateStyle(canc, late);

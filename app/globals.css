@@ -12,3 +12,19 @@ body {
   color: rgb(var(--foreground-rgb));
   background: black;
 }
+
+.tile-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem/* 8px */;
+  padding-bottom: 0.5rem/* 8px */;
+}
+
+.tile-row {
+  display: flex;
+  align-items: center;
+  grid-column: span 3 / span 3;
+  border-top-width: 1px;
+  padding: 0 0.5rem;
+}

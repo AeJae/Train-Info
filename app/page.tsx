@@ -1,10 +1,10 @@
 import { ErrorInfo, NoServices } from "@/app/splashscreen";
-import InfoPanel from "@/app/infoPanel";
+import InfoRow from "@/app/infoRow";
 import { HomeTitle } from "@/app/nav";
 import React from "react";
 
 // EUS COV TWY RDG KGX STP PAD SWI BRI
-const CRS = "PAD";
+const CRS = "RDG";
 
 const username = "rttapi_ae_jae";
 const password = "6093bb063b6182aeafb406be78fee0bc34f01dfc";
@@ -51,7 +51,7 @@ export default async function Home() {
                     const plat = thisLocation.platform;
                     const pCnf = thisLocation.platformConfirmed;
 
-                    items.push(<InfoPanel key={id} eDep={eDep} sDep={sDep} canc={canc} dest={dest} plat={plat} pCnf={pCnf}/>);
+                    items.push(<InfoRow key={id} eDep={eDep} sDep={sDep} canc={canc} dest={dest} plat={plat} pCnf={pCnf}/>);
                 }
             }
             if (serviceCount === 0) return <NoServices station={stationName} />;
