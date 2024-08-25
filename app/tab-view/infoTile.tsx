@@ -63,7 +63,7 @@ export default async function InfoTile({service, crs}: {service: BasicService, c
     return (
         <div className={"tile grid grid-cols-3 grid-rows-4 h-56 bg-gray-600 m-2 rounded-2xl"}>
             <div className={"tile-top text-2xl sDep border-r border-gray-700"}>{formatTimeString(sDep)}</div>
-            <div className={"tile-top text-2xl overflow-hidden text-nowrap eDep"+staCol}>{staStr}</div>
+            <div className={"tile-top md:text-2xl sm:text-xl overflow-hidden text-nowrap eDep"+staCol}>{staStr}</div>
             <div className={"tile-top text-2xl plat border-l border-gray-700"}>Plat {here.platform}</div>
 
             <div className={"tile-row dest border-gray-700"}>
