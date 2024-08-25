@@ -30,10 +30,11 @@ export default async function Page({ params }: {params: { CRS: string }}) {
             // We only care about services that are passenger trains (not buses, freight trains, etc)...
             if (service.serviceType === "train" && service.isPassenger) {
                 serviceCount++;
+                // We need to pass in the CRS as this determines which station along the route the tile shows info for.
                 tiles.push(<InfoTile key={serviceCount} service={service} crs={CRS}/>)
             }
         }
-        // If there are only non-train services, show the no services screen.
+        // If there aren't any passenger trains, show the no services screen.
         if (serviceCount === 0) return <NoServices station={stationInfo.name} />;
 
         return (
