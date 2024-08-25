@@ -40,7 +40,7 @@ export default async function Page({ params }: {params: { CRS: string }}) {
         return (
             <>
                 <HomeTitle name={stationInfo.name} />
-                <div className={"mt-1 grid justify-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 text-xl"}>
+                <div className={"mt-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-xl"}>
                     {tiles}
                 </div>
             </>

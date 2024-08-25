@@ -66,15 +66,15 @@ export default async function InfoTile({service, crs}: {service: BasicService, c
             <div className={"tile-top md:text-2xl sm:text-xl overflow-hidden text-nowrap eDep"+staCol}>{staStr}</div>
             <div className={"tile-top text-2xl plat border-l border-gray-700"}>Plat {here.platform}</div>
 
-            <div className={"tile-row dest border-gray-700"}>
+            <div className={"tile-row dest"}>
                 <span className={"text-xs mt-1 w-5"}>To</span>{here.destination[0].description}
             </div>
 
-            <div className={"tile-row atoc border-gray-700"}>
+            <div className={"tile-row atoc"}>
                 <span className={"text-xs mt-1 w-5"}>By</span>{svc.atocName}
             </div>
 
-            <div className={"tile-row notes border-gray-700 text-gray-400"}>
+            <div className={"tile-row notes text-gray-400"}>
                 <span className={"text-xs w-5"}>{"->"}</span>{addStr}
             </div>
         </div>
