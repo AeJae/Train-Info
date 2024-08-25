@@ -3,6 +3,12 @@ import {getStnData, stnDataInt} from "@/app/tab-view/[CRS]/dataFetcher";
 import {ErrorInfo, NoServices} from "@/app/splashscreen";
 import InfoTile from "@/app/tab-view/[CRS]/infoTile";
 
+export async function generateMetadata({ params }: {params: { CRS: string }}) {
+    return {
+        title: `${params.CRS.toUpperCase()} Live Departures`
+    }
+}
+
 export default async function Page({ params }: {params: { CRS: string }}) {
     // EUS COV TWY RDG KGX STP PAD SWI BRI NRW
     const CRS: string = params.CRS.toUpperCase();
