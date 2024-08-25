@@ -3,7 +3,7 @@ import InfoRow from "@/app/infoRow";
 import { HomeTitle } from "@/app/nav";
 import React from "react";
 
-// EUS COV TWY RDG KGX STP PAD SWI BRI
+// EUS COV TWY RDG KGX STP PAD SWI BRI NRW
 const CRS = "RDG";
 
 const username = "rttapi_ae_jae";
