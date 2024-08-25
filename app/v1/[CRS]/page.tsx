@@ -1,5 +1,5 @@
 import { ErrorInfo, NoServices } from "@/app/splashscreen";
-import InfoRow from "@/app/board-view/[CRS]/infoRow";
+import InfoRow from "@/app/v1/[CRS]/infoRow";
 import { HomeTitle } from "@/app/nav";
 import React from "react";
 

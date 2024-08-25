@@ -1,7 +1,7 @@
 import {HomeTitle} from "@/app/nav";
-import {getStnData, stnDataInt} from "@/app/tab-view/[CRS]/dataFetcher";
+import {getStnData, stnDataInt} from "@/app/v2/[CRS]/dataFetcher";
 import {ErrorInfo, NoServices} from "@/app/splashscreen";
-import InfoTile from "@/app/tab-view/[CRS]/infoTile";
+import InfoTile from "@/app/v2/[CRS]/infoTile";
 
 export async function generateMetadata({ params }: {params: { CRS: string }}) {
     return {

@@ -1,4 +1,4 @@
-import {getSvcData} from "@/app/tab-view/[CRS]/dataFetcher";
+import {getSvcData} from "@/app/v2/[CRS]/dataFetcher";
 
 interface BasicService {
     serviceUid: string,
