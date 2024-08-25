@@ -4,7 +4,7 @@ import {NoServices} from "@/app/splashscreen";
 import InfoTile from "@/app/tab-view/infoTile";
 
 export default async function Page() {
-    const CRS: string = "COV";
+    const CRS: string = "STP";
 
     const stationInfo: stnDataInt = await getStnData({crs: CRS});
     const services: any[] = stationInfo.services;

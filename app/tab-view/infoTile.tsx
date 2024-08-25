@@ -42,13 +42,28 @@ function formatTimeString(timeString: string) {
 export default async function InfoTile({service, crs}: {service: BasicService, crs: string}) {
     const svc: DetailedService = await getSvcData({serviceUid: service.serviceUid, runDate: service.runDate});
     const here: Location = svc.locations[svc.locations.findIndex((stn: Location) => stn.crs === crs)];
-    const sDep: string = here.gbttBookedDeparture;
-    const eDep: string = here.realtimeDeparture;
+    const sDep: string = here.gbttBookedDeparture; // Scheduled departure
+    const eDep: string = here.realtimeDeparture; // Estimated departure
+
+    let staCol: string = " text-green-500";
+    let staStr: string = "On Time";
+    let addStr: string = "No additional information.";
+    if (here.cancelReasonLongText) {
+        staCol = " text-red-500";
+        staStr = "Cancelled";
+        addStr = `Due to ${here.cancelReasonLongText}.`;
+    } else {
+        if (+eDep - +sDep !== 0) { // If not expected to arrive on time...
+            staCol = " text-amber-500";
+            staStr = "Exp " + formatTimeString(eDep);
+            addStr = "This service is delayed.";
+        }
+    }
 
     return (
         <div className={"tile grid grid-cols-3 grid-rows-4 h-56 bg-gray-600 m-2 rounded-2xl"}>
             <div className={"tile-top text-2xl sDep border-r border-gray-700"}>{formatTimeString(sDep)}</div>
-            <div className={"tile-top text-2xl eDep"}>{formatTimeString(eDep)}</div>
+            <div className={"tile-top text-2xl overflow-hidden text-nowrap eDep"+staCol}>{staStr}</div>
             <div className={"tile-top text-2xl plat border-l border-gray-700"}>Plat {here.platform}</div>
 
             <div className={"tile-row dest border-gray-700"}>
@@ -60,7 +75,7 @@ export default async function InfoTile({service, crs}: {service: BasicService, c
             </div>
 
             <div className={"tile-row notes border-gray-700 text-gray-400"}>
-                <span className={"text-xs w-5"}>{"->"}</span>{here.cancelReasonLongText ? here.cancelReasonLongText : "No additional information."}
+                <span className={"text-xs w-5"}>{"->"}</span>{addStr}
             </div>
         </div>
     );
