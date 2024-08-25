@@ -4,7 +4,7 @@ import { HomeTitle } from "@/app/nav";
 import React from "react";
 
 // EUS COV TWY RDG KGX STP PAD SWI BRI
-const CRS = "STP";
+const CRS = "PAD";
 
 const username = "rttapi_ae_jae";
 const password = "6093bb063b6182aeafb406be78fee0bc34f01dfc";
@@ -22,7 +22,7 @@ export async function getServiceInfo(serviceUid: string, runDate: string) {
     return await response.json();
 }
 
-const isThisStation = (station: any) => station.crs === CRS;
+function isThisStation(station: any) {return station.crs === CRS}
 
 export default async function Home() {
     try {
@@ -52,10 +52,8 @@ export default async function Home() {
 
                     items.push(<InfoPanel key={id} eDep={eDep} sDep={sDep} canc={canc} dest={dest} plat={plat} pCnf={pCnf}/>);
                 }
-                if (serviceCount === 0) {
-                    return <NoServices station={stationName} />
-                }
             }
+            if (serviceCount === 0) return <NoServices station={stationName} />;
             return (
                 <main>
                     <HomeTitle name={stationName}/>
@@ -66,9 +64,7 @@ export default async function Home() {
             );
         } catch (e: any) {
             if (e.toString() === "TypeError: data.services is not iterable") {
-                return (
-                    <NoServices station={stationName} />
-                )
+                return <NoServices station={stationName} />
             } else {
                 return <ErrorInfo e={e} source={"Home -> Services Iteration Try-Catch"} />
             }
