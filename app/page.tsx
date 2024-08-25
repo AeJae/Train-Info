@@ -1,7 +1,6 @@
-import {HomeTitle} from "@/app/nav";
+import { ErrorInfo, NoServices } from "@/app/splashscreen";
 import InfoPanel from "@/app/infoPanel";
-import ErrorInfo from "@/app/errorInfo";
-import NoServices from "@/app/noServices";
+import { HomeTitle } from "@/app/nav";
 import React from "react";
 
 // EUS COV TWY RDG KGX STP PAD SWI BRI
