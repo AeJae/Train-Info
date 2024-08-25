@@ -1,11 +1,11 @@
 import {HomeTitle} from "@/app/nav";
-import {getStnData, stnDataInt} from "@/app/tab-view/dataFetcher";
+import {getStnData, stnDataInt} from "@/app/tab-view/[CRS]/dataFetcher";
 import {ErrorInfo, NoServices} from "@/app/splashscreen";
-import InfoTile from "@/app/tab-view/infoTile";
+import InfoTile from "@/app/tab-view/[CRS]/infoTile";
 
-export default async function Page() {
+export default async function Page({ params }: {params: { CRS: string }}) {
     // EUS COV TWY RDG KGX STP PAD SWI BRI NRW
-    const CRS: string = "RDG";
+    const CRS: string = params.CRS.toUpperCase();
 
     const stationInfo: stnDataInt = await getStnData({crs: CRS});
     const services: any = stationInfo.services;
@@ -13,12 +13,12 @@ export default async function Page() {
     let tiles = [];
 
     // Show a splashscreen if there are any errors...
-    if (!services) return <ErrorInfo e={stationInfo.name} source={"dataFetcher.tsx -> Unknown Error"} />;
+    if (services === "ERROR") return <ErrorInfo e={stationInfo.name} source={"dataFetcher.tsx -> Unknown Error"} />;
     if (services === "NOT_FOUND") return <ErrorInfo e={stationInfo.name} source={"dataFetcher.tsx -> NOT_FOUND"} />;
     if (services === "BAD_CRS") return <ErrorInfo e={stationInfo.name} source={"dataFetcher.tsx -> BAD_CRS"} />;
 
     // Check that there are services...
-    if (services.length > 0) {
+    if (services && services.length > 0) {
         // If there are, loop through them all...
         for (const service of services) {
             // We only care about services that are passenger trains (not buses, freight trains, etc)...

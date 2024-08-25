@@ -22,7 +22,7 @@ export async function getStnData({crs} : {crs: string}) {
         return {name, services};
     } catch (e: any) {
         const name = e.toString();
-        let services = null;
+        let services = "ERROR";
         if (e.name === "SyntaxError") services = "NOT_FOUND";
         if (e.name === "TypeError") services = "BAD_CRS";
         return {name, services}
