@@ -1,6 +1,6 @@
 import {HomeTitle} from "@/app/nav";
 import {getStnData, stnDataInt} from "@/app/tab-view/dataFetcher";
-import {NoServices} from "@/app/splashscreen";
+import {ErrorInfo, NoServices} from "@/app/splashscreen";
 import InfoTile from "@/app/tab-view/infoTile";
 
 export default async function Page() {
@@ -11,6 +11,11 @@ export default async function Page() {
     const services: any[] = stationInfo.services;
     let serviceCount = 0;
     let tiles = [];
+
+    // Show an error splashscreen if services is null.
+    if (!services) {
+        return <ErrorInfo e={stationInfo.name} source={"dataFetcher.tsx -> 'services' is null."} />
+    }
 
     // Check that there are services...
     if (services.length > 0) {

@@ -9,13 +9,22 @@ export interface stnDataInt {
 }
 
 export async function getStnData({crs} : {crs: string}) {
-    const rawData = await fetch(`https://api.rtt.io/api/v1/json/search/${crs}`, {headers: headers, cache: "no-cache"});
-    const data = await rawData.json();
+    try {
+        const rawData = await fetch(`https://api.rtt.io/api/v1/json/search/${crs}`, {
+            headers: headers,
+            cache: "no-cache"
+        });
+        const data = await rawData.json();
 
-    const name = data.location.name;
-    const services = data.services;
+        const name = data.location.name;
+        const services = data.services;
 
-    return {name, services};
+        return {name, services};
+    } catch (e: any) {
+        const name = e.toString();
+        const services = null;
+        return {name, services}
+    }
 }
 
 export async function getSvcData({serviceUid, runDate}: {serviceUid: string, runDate: string}) {
