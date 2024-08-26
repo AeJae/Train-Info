@@ -26,18 +26,18 @@ export default function EntryForm() {
     }
 
     return (
-        <form className={"flex flex-col justify-center items-center"} onSubmit={handleSubmit}>
+        <form className={"flex flex-col justify-center items-center max-w-[800px]"} onSubmit={handleSubmit}>
             <div>
-                <button className={"border border-teal-600 rounded-l-md " + (buttonSide === "left" ? "bg-teal-600 text-white" : "bg-white text-teal-500") + " w-24"}
+                <button className={"p-1 border border-sky-500 rounded-l-md hover:drop-shadow-[0_5px_25px_#0070ff30] " + (buttonSide === "left" ? "bg-sky-500 text-white" : "bg-white text-sky-800") + " w-24"}
                         onClick={handleClickLeft}>Tiles
                 </button>
 
-                <button className={"border border-teal-600 rounded-r-md " + (buttonSide === "right" ? "bg-teal-600 text-white" : "bg-white text-teal-500") + " w-24"}
+                <button className={"p-1 border border-sky-500 rounded-r-md hover:drop-shadow-[0_5px_25px_#0070ff30] " + (buttonSide === "right" ? "bg-sky-500 text-white" : "bg-white text-sky-800") + " w-24"}
                         onClick={handleClickRight}>Board
                 </button>
             </div>
-            <select id="select"
-                    className={"border border-teal-600 outline-none text-black rounded-md text-lg my-4 w-96"}>
+
+            <select id="select" className={"p-2 border border-sky-500 bg-sky-950 outline-none text-white rounded-md text-lg my-6 sm:my-12 w-72 sm:w-96"}>
                 <option value={"eus"}>London Euston</option>
                 <option value={"pad"}>London Paddington</option>
                 <option value={"kgx"}>London Kings Cross</option>
@@ -47,7 +47,7 @@ export default function EntryForm() {
                 <option value={"stp"}>St Pancras</option>
                 <option value={"nrw"}>Norwich</option>
             </select>
-            <input type={"submit"} value={"Go"} className={"cursor-pointer border border-teal-600 w-24 rounded-md bg-white text-teal-600"} />
+            <input type={"submit"} value={"->"} className={"p-1 cursor-pointer border bg-sky-600 border-sky-600 w-24 rounded-md text-white drop-shadow-[0_5px_25px_#00a0ff20] hover:drop-shadow-[0_5px_25px_#0070ff80]"} />
         </form>
     )
 }
