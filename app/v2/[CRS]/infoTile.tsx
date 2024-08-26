@@ -1,39 +1,5 @@
+import {BasicService, DetailedService, Location} from "@/app/misc/interfaces";
 import {getSvcData} from "@/app/v2/[CRS]/dataFetcher";
-
-interface BasicService {
-    serviceUid: string,
-    runDate: string,
-    trainIdentity: string,
-    runningIdentity: string,
-    atocCode: string,
-    atocName: string,
-    serviceType: string,
-    isPassenger: boolean,
-}
-
-interface Pair {
-    description: string,
-    publicTime: string
-}
-
-interface Location {
-    crs: string,
-    description: string,
-    gbttBookedDeparture: string,
-    origin: Pair[],
-    destination: Pair[],
-    realtimeDeparture: string,
-    platform: string,
-    platformConfirmed: boolean,
-    cancelReasonShortText: string | null,
-    cancelReasonLongText: string | null
-}
-
-interface DetailedService extends BasicService {
-    origin: Pair[],
-    destination: Pair[],
-    locations: Location[]
-}
 
 function formatTimeString(timeString: string) {
     return timeString.substring(0, 2) + ":" + timeString.substring(2, 4);
