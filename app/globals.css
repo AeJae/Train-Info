@@ -13,10 +13,23 @@ body {
   background: black;
 }
 
+/* Tile View Repeated Styling */
 .tile-top {
   @apply flex justify-center items-center pt-2 pb-2;
 }
-
 .tile-row {
   @apply flex items-center col-span-3 border-t border-gray-700 px-2;
+}
+
+/* Home Page Grid Styling */
+#home-grid {
+  @apply grid grid-rows-[1fr_2fr_0.5fr_3fr_0.5fr_2fr_1fr] grid-cols-1;
+  @apply sm:grid-cols-[1fr_6fr_1fr] md:grid-cols-[1fr_4fr_1fr];
+  @apply lg:grid-cols-[1fr_3fr_1fr] xl:grid-cols-[1fr_2fr_1fr] w-full h-dvh;
+}
+#h-g-welc {
+  @apply col-start-1 col-end-1 sm:col-start-2 sm:col-end-2 row-start-2 row-end-2;
+}
+#h-g-form {
+  @apply col-start-1 col-end-1 sm:col-start-2 sm:col-end-2 row-start-4 row-end-4;
 }
