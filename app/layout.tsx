@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 // These styles apply to every route in the application
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], preload: false });
 
 export const metadata: Metadata = {
   title: "Train Info",
