@@ -12,12 +12,11 @@ export function HomeTitle({ name }: { name: string }) {
     }
 
     return (
-        <nav
-            className="flex h-16 w-full bg-teal-600 justify-between items-center md:text-4xl sm:text-xl overflow-hidden text-nowrap">
+        <nav className="flex h-16 w-full bg-teal-600 justify-between items-center md:text-4xl sm:text-xl overflow-hidden text-nowrap">
             <Link className={"text-2xl w-8 text-center"} href={"/"}>{"<-"}</Link>
             <p id="titleText">Live Departures from {name}</p>
             <button className={"text-2xl w-8 flex justify-center items-center"} onClick={refresh}>
-                <Image className={"invert"} src={"/refresh.svg"} alt={"refresh"} width={17} height={17} />
+                <Image className={"invert"} src={"/refresh.svg"} alt={"refresh"} width={16} height={16} />
             </button>
         </nav>
     )
