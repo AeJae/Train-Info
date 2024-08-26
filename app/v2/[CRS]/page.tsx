@@ -1,7 +1,9 @@
-import {HomeTitle} from "@/app/nav";
 import {getStnData, stnDataInt} from "@/app/v2/[CRS]/dataFetcher";
 import {ErrorInfo, NoServices} from "@/app/splashscreen";
+import BlankInfoTile from "@/app/v2/[CRS]/blankInfoTile";
 import InfoTile from "@/app/v2/[CRS]/infoTile";
+import {HomeTitle} from "@/app/nav";
+import {Suspense} from "react";
 
 export async function generateMetadata({ params }: {params: { CRS: string }}) {
     return {
@@ -31,7 +33,11 @@ export default async function Page({ params }: {params: { CRS: string }}) {
             if (service.serviceType === "train" && service.isPassenger) {
                 serviceCount++;
                 // We need to pass in the CRS as this determines which station along the route the tile shows info for.
-                tiles.push(<InfoTile key={serviceCount} service={service} crs={CRS}/>)
+                tiles.push(
+                    <Suspense key={serviceCount} fallback={<BlankInfoTile />}>
+                        <InfoTile key={serviceCount} service={service} crs={CRS}/>
+                    </Suspense>
+                )
             }
         }
         // If there aren't any passenger trains, show the no services screen.
