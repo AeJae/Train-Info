@@ -1,4 +1,4 @@
-import AdvancedModeController from "@/app/misc/advancedModeController";
+import AdvancedMode from "@/app/misc/advancedMode";
 import EntryForm from "@/app/entryForm";
 
 export default function Page() {
@@ -16,7 +16,7 @@ export default function Page() {
             </div>
 
             <div id="h-g-advm" className={"flex flex-col justify-center items-center text-gray-700"}>
-                <AdvancedModeController />
+                <AdvancedMode />
             </div>
         </main>
     )

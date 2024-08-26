@@ -3,7 +3,7 @@
 import {useState} from "react";
 import {useRouter} from "next/navigation";
 
-export default function AdvancedModeController() {
+export default function AdvancedMode() {
     const [showAdvanced, setShowAdvanced] = useState(false);
     const [showError, setShowError] = useState(false);
     const [userCRS, setUserCRS] = useState("");
