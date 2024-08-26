@@ -37,15 +37,15 @@ export default function infoRow({ eDep, sDep, canc, dest, plat, pCnf }: params) 
     const cancelStyling = (canc ? " text-red-500" : "");
 
     return (
-        <div className={"info flex items-center justify-between w-full text-xl cursor-pointer mt-0.5 mb-0.5"}>
+        <div className={"info flex items-center justify-between w-full text-sm sm:text-xl cursor-pointer mt-0.5 mb-0.5"}>
             <div className={"flex"}>
-                <p className={"sDep w-16 text-center" + cancelStyling}>{sDep.substring(0, 2)}:{sDep.substring(2, 4)}</p>
-                <p className={"eDep w-28 ml-2" + latenessStyling}>{eDepString}</p>
+                <p className={"sDep w-11 sm:w-16 text-center" + cancelStyling}>{sDep.substring(0, 2)}:{sDep.substring(2, 4)}</p>
+                <p className={"eDep w-20 sm:w-28 ml-2" + latenessStyling}>{eDepString}</p>
             </div>
             <p className={"dest text-center" + cancelStyling}>{dest}</p>
             <div className={"flex"}>
-                <p className={"placeholder w-28 mr-2"}></p>
-                <p className={"plat w-16 text-center" + platformStyling + cancelStyling}>{plat}</p>
+                <p className={"placeholder w-0 sm:w-28 m-0 sm:mr-2"}></p>
+                <p className={"plat w-11 sm:w-16 text-center" + platformStyling + cancelStyling}>{plat}</p>
             </div>
         </div>
     )

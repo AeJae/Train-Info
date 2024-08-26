@@ -37,7 +37,7 @@ export default function EntryForm() {
                 </button>
             </div>
 
-            <select id="select" className={"p-2 border border-sky-500 bg-sky-950 outline-none text-white rounded-md text-lg my-6 sm:my-12 w-72 sm:w-96"}>
+            <select id="select" className={"p-2 cursor-pointer border border-sky-500 bg-sky-950 outline-none text-white rounded-md text-lg my-6 sm:my-12 w-72 sm:w-96"}>
                 <option value={"eus"}>London Euston</option>
                 <option value={"pad"}>London Paddington</option>
                 <option value={"kgx"}>London Kings Cross</option>
