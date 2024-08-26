@@ -5,8 +5,9 @@ import {useState} from "react";
 //create your forceUpdate hook
 function useForceUpdate(){
     console.log("Update")
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update state to force render
+    // const [value, setValue] = useState(0); // integer state
+    // return () => setValue(value => value + 1); // update state to force render
+    return () => {};
 }
 
 export default function TestModule () {

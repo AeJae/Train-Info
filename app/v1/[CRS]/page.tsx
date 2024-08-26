@@ -1,6 +1,6 @@
-import { ErrorInfo, NoServices } from "@/app/splashscreen";
+import { ErrorInfo, NoServices } from "@/app/misc/splashscreen";
 import InfoRow from "@/app/v1/[CRS]/infoRow";
-import { HomeTitle } from "@/app/nav";
+import { HomeTitle } from "@/app/misc/nav";
 import React from "react";
 
 const username = "rttapi_ae_jae";

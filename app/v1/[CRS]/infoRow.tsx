@@ -47,7 +47,6 @@ export default function infoRow({ eDep, sDep, canc, dest, plat, pCnf }: params) 
                 <p className={"placeholder w-28 mr-2"}></p>
                 <p className={"plat w-16 text-center" + platformStyling + cancelStyling}>{plat}</p>
             </div>
-
         </div>
     )
 }

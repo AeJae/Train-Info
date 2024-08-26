@@ -1,8 +1,8 @@
 import {getStnData, stnDataInt} from "@/app/v2/[CRS]/dataFetcher";
-import {ErrorInfo, NoServices} from "@/app/splashscreen";
+import {ErrorInfo, NoServices} from "@/app/misc/splashscreen";
 import BlankInfoTile from "@/app/v2/[CRS]/blankInfoTile";
 import InfoTile from "@/app/v2/[CRS]/infoTile";
-import {HomeTitle} from "@/app/nav";
+import {HomeTitle} from "@/app/misc/nav";
 import {Suspense} from "react";
 
 export async function generateMetadata({ params }: {params: { CRS: string }}) {
