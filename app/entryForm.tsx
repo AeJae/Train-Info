@@ -39,13 +39,14 @@ export default function EntryForm() {
 
             <select id="select" className={"p-2 cursor-pointer border border-sky-500 bg-sky-950 outline-none text-white rounded-md text-lg my-6 sm:my-12 w-72 sm:w-96"}>
                 <option value={"eus"}>London Euston</option>
+                <option value={"lbg"}>London Bridge</option>
                 <option value={"pad"}>London Paddington</option>
                 <option value={"kgx"}>London Kings Cross</option>
+                <option value={"stp"}>St Pancras</option>
                 <option value={"cov"}>Coventry</option>
+                <option value={"nrw"}>Norwich</option>
                 <option value={"twy"}>Twyford</option>
                 <option value={"rdg"}>Reading</option>
-                <option value={"stp"}>St Pancras</option>
-                <option value={"nrw"}>Norwich</option>
             </select>
             <input type={"submit"} value={"->"} className={"p-1 cursor-pointer border bg-sky-600 border-sky-600 w-24 rounded-md text-white drop-shadow-[0_5px_25px_#00a0ff20] hover:drop-shadow-[0_5px_25px_#0070ff80]"} />
         </form>

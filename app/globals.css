@@ -29,7 +29,12 @@ body {
 }
 #h-g-welc {
   @apply col-start-1 col-end-1 sm:col-start-2 sm:col-end-2 row-start-2 row-end-2;
+  @apply flex justify-center items-center flex-col;
 }
 #h-g-form {
   @apply col-start-1 col-end-1 sm:col-start-2 sm:col-end-2 row-start-4 row-end-4;
+  @apply flex justify-center items-center w-full h-full drop-shadow-[0_0_400px_#0000ff];
+}
+#h-g-advm {
+  @apply col-start-1 col-end-1 sm:col-start-2 sm:col-end-2 row-start-6 row-end-6;
 }
