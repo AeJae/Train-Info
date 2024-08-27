@@ -30,25 +30,28 @@ export default async function Home({ params }: {params: { CRS: string }}) {
         let serviceCount = 0;
 
         try {
-            for (const service of data.services) {
-                const id = service.serviceUid;
-                const runDate = service.runDate;
-                const info = await getServiceInfo(id, runDate);
+            // Check that data.services exists, if it doesn't there are no services
+            if (data.services) {
+                for (const service of data.services) {
+                    const id = service.serviceUid;
+                    const runDate = service.runDate;
+                    const info = await getServiceInfo(id, runDate);
 
-                if (info.isPassenger && info.serviceType === "train") {
-                    serviceCount++;
-                    const thisLocation = info.locations[info.locations.findIndex((stn: any) => stn.crs === CRS)];
-                    // Departure timings
-                    const eDep = thisLocation.realtimeDeparture;
-                    const sDep = thisLocation.gbttBookedDeparture;
-                    const canc = thisLocation.cancelReasonShortText;
-                    // Destination
-                    const dest = info.destination[0].description;
-                    // Platform number
-                    const plat = thisLocation.platform;
-                    const pCnf = thisLocation.platformConfirmed;
+                    if (info.isPassenger && info.serviceType === "train") {
+                        serviceCount++;
+                        const thisLocation = info.locations[info.locations.findIndex((stn: any) => stn.crs === CRS)];
+                        // Departure timings
+                        const eDep = thisLocation.realtimeDeparture;
+                        const sDep = thisLocation.gbttBookedDeparture;
+                        const canc = thisLocation.cancelReasonShortText;
+                        // Destination
+                        const dest = info.destination[0].description;
+                        // Platform number
+                        const plat = thisLocation.platform;
+                        const pCnf = thisLocation.platformConfirmed;
 
-                    items.push(<InfoRow key={id} eDep={eDep} sDep={sDep} canc={canc} dest={dest} plat={plat} pCnf={pCnf}/>);
+                        items.push(<InfoRow key={id} eDep={eDep} sDep={sDep} canc={canc} dest={dest} plat={plat} pCnf={pCnf}/>);
+                    }
                 }
             }
             if (serviceCount === 0) return <NoServices station={stationName} />;
