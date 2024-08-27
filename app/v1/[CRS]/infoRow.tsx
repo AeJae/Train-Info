@@ -22,11 +22,14 @@ function createDepString(canc: string | null, late: boolean, eDep: string) {
     if (canc) {
         return "Cancelled";
     } else {
-        if (late) {
+        if (eDep && late) {
             return "Exp " + eDep.substring(0, 2) + ":" + eDep.substring(2, 4);
+        } else if (!eDep) {
+            return "No Time"
+        } else {
+            return "";
         }
     }
-    return "";
 }
 
 export default function infoRow({ eDep, sDep, canc, dest, plat, pCnf }: params) {
