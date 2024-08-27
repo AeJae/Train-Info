@@ -21,8 +21,14 @@ export default async function InfoTile({service, crs}: {service: BasicService, c
     } else {
         if (+eDep - +sDep !== 0) { // If not expected to arrive on time...
             staCol = " text-amber-500";
-            staStr = "Exp " + formatTimeString(eDep);
-            addStr = "This service is delayed.";
+            if (eDep) {
+                staStr = "Exp " + formatTimeString(eDep);
+                addStr = "This service is delayed.";
+            } else {
+                addStr = "Live information unavailable.";
+                staCol = " text-gray-400";
+                staStr = "No Info";
+            }
         }
     }
 
