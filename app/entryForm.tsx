@@ -26,7 +26,7 @@ export default function EntryForm() {
     }
 
     return (
-        <form className={"flex flex-col justify-center items-center max-w-[800px]"} onSubmit={handleSubmit}>
+        <form className={"flex flex-col justify-evenly items-center w-full h-full min-h-48"} onSubmit={handleSubmit}>
             <div>
                 <button className={"p-1 border border-sky-500 rounded-l-md hover:drop-shadow-[0_5px_25px_#0070ff30] " + (buttonSide === "left" ? "bg-sky-500 text-white" : "bg-white text-sky-800") + " w-24"}
                         onClick={handleClickLeft}>Tiles
@@ -37,7 +37,7 @@ export default function EntryForm() {
                 </button>
             </div>
 
-            <select id="select" className={"p-2 cursor-pointer border border-sky-500 bg-sky-950 outline-none text-white rounded-md text-lg my-6 sm:my-12 w-72 sm:w-96"}>
+            <select id="select" className={"p-2 cursor-pointer border border-sky-500 bg-sky-950 outline-none text-white rounded-md text-lg w-72 sm:w-96"}>
                 <option value={"eus"}>London Euston</option>
                 <option value={"lbg"}>London Bridge</option>
                 <option value={"pad"}>London Paddington</option>
